@@ -5,10 +5,10 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface ReminderDao {
-    @Query("SELECT * FROM reminders ORDER BY isPinned DESC, date ASC")
+    @Query("SELECT * FROM reminders ORDER BY isPinned DESC, dateEpochDay ASC")
     fun getAllReminders(): Flow<List<ReminderItem>>
 
-    @Query("SELECT * FROM reminders ORDER BY isPinned DESC, date ASC")
+    @Query("SELECT * FROM reminders ORDER BY isPinned DESC, dateEpochDay ASC")
     suspend fun getAllRemindersList(): List<ReminderItem>
 
     @Query("SELECT * FROM reminders WHERE id = :id")
